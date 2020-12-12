@@ -251,6 +251,7 @@ let fullMenu = {
 
 
 ////Поехали
+
 function menuForWeek(obj, yourdish){
 
     let menuStr = "Ваше меню на эту неделю \n\n";
@@ -262,6 +263,7 @@ function menuForWeek(obj, yourdish){
         key = obj[key]
 
         ///Смотрим сколько этого вида нужно и рандомно выбираем
+
         for (let i = 0; i < key.howMany; i++){
             yourdish = key.dishes[Math.floor(Math.random() * key.dishes.length)]
             ///Добавляем имя блюда в строку
@@ -272,6 +274,8 @@ function menuForWeek(obj, yourdish){
                   
                     menuIngr.push(ingr)
                 }
+                ///Тут вырезаем выбранное блюдо, чтобы оно не повторялось
+                key.dishes.splice(key.dishes.indexOf(yourdish), 1)
 
         }
     }
